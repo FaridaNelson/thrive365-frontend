@@ -1,0 +1,44 @@
+.goal-card {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  background-color: #ccd5ae;
+  padding: 40px;
+  border-radius: 20px;
+  font-family: "Averia Serif Libre";
+  align-items: center;
+  text-align: center;
+}
+
+.goal-card__header {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.goal-card__manage-goal-button {
+  padding: 20px 40px;
+  background-color: #ca721c;
+  border-radius: 20px;
+  border: none;
+  font-size: 18px;
+  color: #fafaff;
+  cursor: pointer;
+  
+}
+
+.goal-card__delete-btn-image {
+  width: 20px;
+}
+
+.goal-card__image {
+  border-radius: 20px;
+  width: 200px;
+}
+
+.goal-card__delete-btn {
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
