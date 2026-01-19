@@ -1,8 +1,18 @@
-.footer{
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    background-color: rgb(220, 220, 209);
-    color: darkolivegreen;
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #7e8a57;
+  color: #fafaff;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  font-family: "Averia Serif Libre";
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  vertical-align: middle;
 }
 

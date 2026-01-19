@@ -1,17 +1,13 @@
 import "./DashBoard.css"
-
+import GoalCards from "../GoalCards/GoalCards/GoalCards"
 function DashBoard(){
     return(
         //put card components
         //this is just an example for Blake
         <div className="dashboard">
+            <h1 className="dashboard__title">Your current goals</h1>
             <div className="dashboard__items">
-                <div className="dashboard__item">BLABLABLA</div>
-                <div className="dashboard__item">BLABLABLA</div>
-                <div className="dashboard__item">BLABLABLA</div>
-                <div className="dashboard__item">BLABLABLA</div>
-                <div className="dashboard__item">BLABLABLA</div>
-            
+              <GoalCards/>
             </div>
         </div>
     )
