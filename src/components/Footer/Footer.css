@@ -4,17 +4,14 @@
   justify-content: space-around;
   background-color: #7e8a57;
   color: #fafaff;
-  position: absolute;
-  top: 100%;
   width: 100%;
   font-family: "Averia Serif Libre";
   font-weight: 700;
-  font-style: Bold;
-  font-size: 20px;
+  font-size: 16px;
   line-height: 100%;
-  letter-spacing: 0%;
-  vertical-align: middle;
+  padding: 12px 16px;
 }
+
 
 @media (max-width: 768px) {
   .footer {

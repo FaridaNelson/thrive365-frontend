@@ -22,10 +22,11 @@ padding: 0px 100px;
 }
 
 .hero-section__buttons{
-    margin-top: 50px;
+    margin: 50px;
     display: flex;
     justify-content: center;
     gap: 100px;
+
 }
 
 

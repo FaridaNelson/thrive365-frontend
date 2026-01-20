@@ -1,87 +1,103 @@
 .about-us {
-    background-color: #FAEDCD ;
+  background-color: #faedcd;
+  font-family: "Averia Serif Libre";
+  padding: 60px 6vw;
 }
 
 .about-us__title {
-    text-align: center;
-    font-size: 28px;
-    font-weight: 700;
-    margin-bottom: 8px;
+  text-align: center;
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #ca721c;
 }
 
 .about-us__subtitle {
-    text-align: center;
-    font-size: 12px;
-    margin-bottom: 24px;
+  text-align: center;
+  font-size: clamp(16px, 2.5vw, 22px);
+  margin-bottom: 32px;
 }
 
-.about-us__description {
-    margin: 0 auto;
-    max-width: 400px;
+.about-us__people {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  justify-items: center;
 }
 
-.about-us__cards {
+.about-us__person {
+  width: 100%;
+  max-width: 420px;
+  background-color: #fff8e6;
+  border: 1px solid #7e8a57;
+  border-radius: 8px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.about-us__person-picture-and-info {
   display: flex;
-  flex-direction: column;
   gap: 16px;
+  align-items: center;
 }
 
-.about-us__card {
-  background-color: #fff;
-  border: 1px solid #999;
-  border-radius: 6px;
-  padding: 12px;
-}
-
-.about-us__card-header {
-  display: flex;
-  gap: 12px;
-}
-
-.about-us__card-description {
-  font-size: 12px;
-  line-height: 1.4;
-  margin-top: 8px;
-}
-
-.about-us__image {
-  width: 70px;
-  height: 70px;
-  background-color: #ddd;
-  border-radius: 4px;
+.about-us__person-picture {
+  width: 120px;
+  max-width: 35%;
+  border-radius: 8px;
   flex-shrink: 0;
 }
 
-.about-us__info {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.about-us__person-link {
+  text-decoration: underline;
+  word-break: break-word; 
 }
 
-.about-us__name {
-  font-weight: bold;
-  font-size: 14px;
+.about-us__person-link a{
+  text-decoration: none;
+  color: black;
 }
 
-.about-us__role {
-  font-size: 12px;
-}
 
-.about-us__links {
-  font-size: 12px;
-}
-
-@media (min-width: 768px) {
-  .about-us__description {
-    max-width: 600px;
+@media (max-width: 1024px) {
+  .about-us {
+    padding: 40px 5vw;
   }
 
-  .about-us__image {
-    width: 90px;
-    height: 90px;
+  .about-us__person-picture {
+    width: 100px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-us {
+    padding: 24px 16px;
   }
 
-  .about-us__card-description {
-    font-size: 14px;
+  .about-us__people {
+    gap: 16px;
+  }
+
+  .about-us__person {
+    padding: 16px;
+  }
+
+  .about-us__person-picture {
+    width: 100px;
+  }
+
+  .about-us__person-picture-and-info {
+    gap: 12px;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .about-us__person-picture {
+    width: 80px;
+  }
+
+  .about-us__person {
+    padding: 14px;
   }
 }

@@ -4,20 +4,22 @@ import Footer from "./components/Footer/Footer";
 import DashBoard from "./components/DashBoard/DashBoard";
 import HeroSection from "./components/HeroSection/HeroSection";
 import AboutUs from "./components/AboutUs/AboutUs";
-import GoalPage from "./components/GoalPage/GoalPage";
 
 function App() {
   return (
-    <>
+    <div className="app">
       <Header />
-    <AboutUs />
-      <Routes>
-        <Route exact path="/" element={<HeroSection />} />
 
-        <Route exact path="/dashboard" element={<DashBoard />} />
-      </Routes>
+      <main className="app__main">
+        <Routes>
+          <Route path="/" element={<HeroSection />} />
+          <Route path="/dashboard" element={<DashBoard />} />
+          <Route path="/about-us" element={<AboutUs />} />
+        </Routes>
+      </main>
+
       <Footer />
-    </>
+    </div>
   );
 }
 
