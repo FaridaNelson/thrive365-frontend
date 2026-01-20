@@ -1,0 +1,87 @@
+.about-us {
+    background-color: #FAEDCD ;
+}
+
+.about-us__title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.about-us__subtitle {
+    text-align: center;
+    font-size: 12px;
+    margin-bottom: 24px;
+}
+
+.about-us__description {
+    margin: 0 auto;
+    max-width: 400px;
+}
+
+.about-us__cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.about-us__card {
+  background-color: #fff;
+  border: 1px solid #999;
+  border-radius: 6px;
+  padding: 12px;
+}
+
+.about-us__card-header {
+  display: flex;
+  gap: 12px;
+}
+
+.about-us__card-description {
+  font-size: 12px;
+  line-height: 1.4;
+  margin-top: 8px;
+}
+
+.about-us__image {
+  width: 70px;
+  height: 70px;
+  background-color: #ddd;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.about-us__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.about-us__name {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.about-us__role {
+  font-size: 12px;
+}
+
+.about-us__links {
+  font-size: 12px;
+}
+
+@media (min-width: 768px) {
+  .about-us__description {
+    max-width: 600px;
+  }
+
+  .about-us__image {
+    width: 90px;
+    height: 90px;
+  }
+
+  .about-us__card-description {
+    font-size: 14px;
+  }
+}
