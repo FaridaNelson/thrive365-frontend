@@ -16,3 +16,19 @@
   vertical-align: middle;
 }
 
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+    padding: 24px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 16px 12px;
+    font-size: 14px;
+  }
+}
+

@@ -55,3 +55,25 @@ padding: 0px 100px;
     width: 200px;
     height: 200px;
 }
+
+@media (max-width: 768px) {
+  .hero-section {
+    height: auto;
+    padding: 40px 20px;
+  }
+
+  .hero-section__buttons {
+    margin-top: 60px;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .hero-section__login-button,
+  .hero-section__signup-button {
+    width: 100%;
+    max-width: 300px;
+    padding: 16px 24px;
+    font-size: 15px;
+  }
+}

@@ -25,3 +25,21 @@
     background-color: rgb(68, 182, 110);
     color: black;
 }
+
+@media (min-width: 1024px) {
+  .dashboard__items {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 1020px) {
+  .dashboard__items {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .dashboard__items {
+    grid-template-columns: 1fr;
+  }
+}
