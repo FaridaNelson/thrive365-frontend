@@ -1,5 +1,6 @@
 export const initialCards = [
   {
+    Category: "Fitness",
     Title: "Workout",
     Definition: "Building a consistent fitness routine",
     Reason: "Boosts energy and long-term health",
@@ -12,6 +13,7 @@ export const initialCards = [
     ],
   },
   {
+    Category: "Career",
     Title: "Career Growth",
     Definition: "Advancing my professional skills",
     Reason: "Creates stability",
@@ -23,6 +25,7 @@ export const initialCards = [
     ],
   },
   {
+    Category: "Finance",
     Title: "Financial Discipline",
     Definition: "Saving and managing money",
     Reason: "Reduces stress and builds freedom",
@@ -31,6 +34,18 @@ export const initialCards = [
       "Create a monthly budget",
       "Save $500/month",
       "Eliminate one unnecessary subscription",
+    ],
+  },
+  {
+    Category: "Learning",
+    Title: "Learn French",
+    Definition: "Exploring the french language",
+    Reason: "Introduces you to a new culture",
+    Image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d",
+    SteppingStones: [
+      "Use duolingo daily",
+      "Lern 10 phrases a month",
+      "Study at local french classes",
     ],
   },
 ];
