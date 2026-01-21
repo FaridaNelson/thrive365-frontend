@@ -55,8 +55,7 @@ export const people = [
     name: "Farida Nelson",
     title: "Software Engineer",
     picture:
-      "https://media.licdn.com/dms/image/v2/D5635AQE-j1RTM_cnFQ/profile-framedphoto-shrink_800_800/B56Zh7EuEEHUAk-/0/1754411491928?e=1769486400&v=beta&t=Xpf7FLp-D7ML8d_0fkknKhucmzRxp_gRRy9nPvmOc6k",
-    link: "https://www.linkedin.com/in/farida-nelson/",
+      "https://pleasantonacademyofmusic.com/wp-content/uploads/2024/05/Farida-Nelson-Img.webp",
     bio: `"I'm a professional musician with over 20 years of experience in performance, teaching, arranging, and composition.Lately, I've been diving into software engineering and web development. I completed a Swift and iOS App Development course on EDX.com in November 2024, and since then, I've been enrolled in a Software Engineering bootcamp with TripleTen.
 I love blending music and tech to create innovative projects."`,
   },

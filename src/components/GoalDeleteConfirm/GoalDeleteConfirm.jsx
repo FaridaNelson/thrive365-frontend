@@ -38,7 +38,7 @@ function GoalDeleteConfirm() {
       <button
         type="button"
         className="delete-confirm__delete"
-        onClick={() => navigate(`/goals/${goalId}/deleted`)} // replace with handleDelete when ready to connect the Backend
+        onClick={() => navigate(`/goals/deleted`)} // replace with handleDelete when ready to connect the Backend
       >
         Delete Goal
       </button>

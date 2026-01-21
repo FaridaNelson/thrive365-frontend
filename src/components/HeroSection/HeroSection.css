@@ -1,66 +1,82 @@
-.hero-section{
-
-    text-align: center;
-    font-family: "Averia Serif Libre" ;
+.hero-section {
+  text-align: center;
+  font-family: "Averia Serif Libre";
+  height: 75vh;
 }
 
-.hero-section__title{
-    color: #CA721C;
-    font-size: 42px;
+.hero-section__title {
+  color: #ca721c;
+  font-size: 42px;
 }
 
-.hero-section__tagline{
-font-weight: 400;
-font-style: Regular;
-font-size: 24px;
-line-height: 180%;
-letter-spacing: 0%;
-text-align: center;
-vertical-align: middle;
-padding: 0px 100px;
-
+.hero-section__tagline {
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 24px;
+  line-height: 180%;
+  letter-spacing: 0%;
+  text-align: center;
+  vertical-align: middle;
 }
 
-.hero-section__buttons{
-    margin: 50px;
-    display: flex;
-    justify-content: center;
-    gap: 100px;
-
+.hero-section__buttons {
+  margin: 50px;
+  display: flex;
+  justify-content: center;
+  gap: 100px;
 }
 
-
-.hero-section__login-button{
-    padding: 20px 40px;
-    background-color: #838C65;
-    border-radius: 20px;
-    border: none;
-    font-size: 24px;
-    color: #FAFAFF;
-    cursor: pointer;
+.hero-section__login-button {
+  font-family: "Averia Serif Libre";
+  padding: 20px 40px;
+  background-color: #838c65;
+  border-radius: 20px;
+  border: none;
+  font-size: 24px;
+  color: #fafaff;
+  cursor: pointer;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.18);
+  width: 40%;
 }
 
-.hero-section__signup-button{
-    padding: 20px 40px;
-    background-color: #CA721C;
-    border-radius: 20px;
-    border: none;
-    font-size: 24px;
-    color: #FAFAFF;
-    cursor: pointer;
-
+.hero-section__signup-button {
+  font-family: "Averia Serif Libre";
+  padding: 20px 40px;
+  background-color: #ca721c;
+  border-radius: 20px;
+  border: none;
+  font-size: 24px;
+  color: #fafaff;
+  cursor: pointer;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.18);
+  width: 40%;
 }
 
-.hero-section__logo{
-    margin: 40px 0px;
-    width: 200px;
-    height: 200px;
+.hero-section__logo {
+  margin: 40px 0px;
+  width: 200px;
+  height: 200px;
+}
+
+@media (max-width: 1200px) {
+  .hero-section {
+    height: auto;
+    padding: 40px 20px;
+  }
 }
 
 @media (max-width: 768px) {
   .hero-section {
     height: auto;
     padding: 40px 20px;
+  }
+
+  .hero-section__title{
+    font-size: 28px;
+  }
+
+  .hero-section__tagline{
+    font-size: 16px;
   }
 
   .hero-section__buttons {
@@ -75,6 +91,7 @@ padding: 0px 100px;
     width: 100%;
     max-width: 300px;
     padding: 16px 24px;
-    font-size: 15px;
+    font-size: 20px;
+  
   }
 }

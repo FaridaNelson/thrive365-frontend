@@ -1,7 +1,8 @@
 import "./HeroSection.css";
-import dotsLogo from "../../assets/logo-dots.svg"
+import { useNavigate } from "react-router-dom";
 
 function HeroSection() {
+  const navigate = useNavigate();
   return (
     <div className="hero-section">
       <h1 className="hero-section__title">Welcome to Thrive365</h1>
@@ -19,12 +20,21 @@ function HeroSection() {
       </p>
 
       <p className="hero-section__tagline">
-      Log in or sign up to start creating your goals
+        Log in or sign up to start creating your goals
       </p>
-      <img src={dotsLogo} alt="Dot logo" className="hero-section__logo" />
       <div className="hero-section__buttons">
-        <button className="hero-section__login-button">Login</button>
-        <button className="hero-section__signup-button">Sign Up</button>
+        <button
+          className="hero-section__login-button"
+          onClick={() => navigate("/login")}
+        >
+          Login
+        </button>
+        <button
+          className="hero-section__signup-button"
+          onClick={() => navigate("/signup")}
+        >
+          Sign Up
+        </button>
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 .dashboard{
-    padding: 20px 160px;
+    padding: 20px 60px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -11,12 +11,14 @@
     text-align: center;
     font-family: "Averia Serif Libre" ;
     color: #CA721C ;
+  
 }
 
 .dashboard__subtitle{
   font-family: "Averia Serif Libre";
-  padding: 0 60px;
+  padding: 0 160px;
   text-align: center;
+  font-size: 24px;
 }
 
 .dashboard__items{
@@ -36,8 +38,35 @@
     color: black;
 }
 
+@media (max-width: 1440px) {
+  .dashboard__items{
+    grid-template-columns: repeat(2,1fr);
+  }
+  
+}
+
+@media (max-width: 1240px) {
+  .dashboard{
+    padding: 20px 20px;
+  }
+
+  .dashboard__subtitle{
+    padding: 0 60px
+  }
+  .dashboard__items {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 
 @media (max-width: 1020px) {
+  .dashboard{
+    padding: 20px 20px;
+  }
+
+  .dashboard__subtitle{
+    padding: 0 30px;
+  }
+
   .dashboard__items {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -48,7 +77,9 @@
     .dashboard{
       padding: 10px 10px;
     }
-
+    .dashboard__subtitle{
+      padding: 0 10px;
+    }
 
   .dashboard__items {
     grid-template-columns: 1fr;

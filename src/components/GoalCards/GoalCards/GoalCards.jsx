@@ -13,8 +13,8 @@ function GoalCards() {
             />
             <div className="goal-card__title-and-progress-bar">
               <h2 className="goal-card__category">{card.Category}</h2>
-              <div class="goal-card__progress-bar">
-                <div class="goal-card__progress-bar__fill"></div>
+              <div className="goal-card__progress-bar">
+                <div className="goal-card__progress-bar__fill"></div>
               </div>
             </div>
           </div>
