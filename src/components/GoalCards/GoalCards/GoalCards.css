@@ -2,43 +2,55 @@
   width: 300px;
   display: flex;
   flex-direction: column;
-  background-color: #ccd5ae;
-  padding: 40px;
+  background-color: #FFF8E6;
+  padding: 30px;
   border-radius: 20px;
   font-family: "Averia Serif Libre";
-  align-items: center;
-  text-align: center;
+  border: 1px solid #7E8A57;
 }
 
 .goal-card__header {
   display: flex;
-  justify-content: space-between;
-  gap: 20px;
+  gap: 10px;
+}
+
+.goal-card__title-and-progress-bar{
+  width: 100%;
 }
 
 .goal-card__manage-goal-button {
-  padding: 20px 40px;
-  background-color: #ca721c;
-  border-radius: 20px;
+  padding: 10px 40px;
+  background-color: #7E8A57;
+  border-radius: 8px;
   border: none;
   font-size: 18px;
   color: #fafaff;
+  font-family: "Averia Serif Libre";
   cursor: pointer;
   
 }
 
-.goal-card__delete-btn-image {
-  width: 20px;
+.goal-card__progress-bar {
+  width: 100%;
+  max-width: 1000px;
+  height: 30px;
+  background-color: #c9cbe6; /* must be lighter color of the main color*/
+  border-radius: 999px;
+  overflow: hidden;
 }
+
+.goal-card__progress-bar__fill {
+  height: 100%;
+  width: 30%; /* must change this to adjust progress */
+  background-color: #2338c6; 
+  border-radius: 999px 0 0 999px;
+}
+
 
 .goal-card__image {
   border-radius: 20px;
-  width: 200px;
+  width: 100px;
+
 }
 
-.goal-card__delete-btn {
-  background-color: transparent;
-  border: none;
-  font-size: 20px;
-  cursor: pointer;
-}
+

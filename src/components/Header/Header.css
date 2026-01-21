@@ -1,21 +1,29 @@
 .header {
   display: flex;
-  padding: 10px 40px;
+  flex-direction: column;
   justify-content: space-evenly;
-  align-items: center;
 }
 
 .header__logo {
   width: 200px;
+  margin-left: 100px;
+  padding-top: 10px;
 }
 
+.header__menu {
+  margin-top: 20px;
+  display: flex;
+  background-color: #7e8a57;
+  gap: 50px;
+}
 
 .header__menu_nav_buttons {
+  margin-left: 52px;
   list-style-type: none;
   display: flex;
   gap: 50px;
   align-items: center;
-  color: #838c65;
+  color: #fafaff;
   font-family: "Averia Serif Libre";
   font-weight: 700;
   font-style: Bold;
@@ -26,57 +34,119 @@
   cursor: pointer;
 }
 
-nav a{
+nav a {
   text-decoration: none;
-  color: #838c65;
+  color: #fafaff;
 }
 
-a:hover{
+a:hover {
   text-decoration: underline;
 }
 
-
-.header__buttons{
-    display: flex;
-    gap: 20px;
+.header__buttons {
+  display: flex;
+  gap: 50px;
 }
 
 .header__login-btn,
-.header__signup-btn{
-    color: #838c65;
-    font-family: "Averia Serif Libre";
-    font-weight: 700;
-    font-style: Bold;
-    font-size: 24px;
-    line-height: 100%;
-    letter-spacing: 0%;
-    vertical-align: middle;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
+.header__signup-btn {
+  color: #fafaff;
+  font-family: "Averia Serif Libre";
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  vertical-align: middle;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
 
-@media (max-width: 768px) {
+.header__hamburger-menu-icon {
+  padding-top: 10px;
+  width: 40px;
+  background-color: transparent;
+}
+
+.header__hamburger-menu-btn {
+  background-color: transparent;
+  border: none;
+}
+
+.header__mobile-menu {
+  position: relative;
+}
+
+.header__mobile-menu_items {
+  position: absolute;
+  top: 100%;
+  right: 0%;
+  padding: 30px;
+  width: 140px;
+  background-color: #7e8a57;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 8px;
+  font-family: "Averia Serif Libre";
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.header__mobile-menu_items--open {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  z-index: 1;
+}
+
+.header__menu-mobile-close{
+  background-color: transparent;
+  color: #fafaff;
+  border: 1px solid #fafaff;
+  font-size: 20px;
+}
+
+.header__mobile-menu_items a {
+  list-style: none;
+  text-align: center;
+  margin: 0;
+}
+
+.header__menu_nav_buttons-mobile {
+  margin: 0;
+  padding: 0;
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.header__buttons-mobile{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+@media (max-width: 1200px) {
   .header {
-    flex-direction: column;
+    background-color: #fff8e6;
+    flex-direction: row;
     align-items: center;
-    padding: 12px 20px;
-    gap: 12px;
+    padding-bottom: 20px;
   }
 
-  .header__menu_nav_buttons {
-    flex-direction: column;
-    gap: 12px;
-    padding: 0;
-  }
-}
-
-@media (max-width: 480px) {
-  .header {
-    padding: 10px 16px;
+  .header__logo {
+    margin-left: 0;
   }
 
-  .header__menu_nav_buttons {
-    gap: 8px;
+  .header__login-btn,
+  .header__signup-btn {
+    font-size: 16px;
+    display: flex;
+    gap: 20px;
   }
 }

@@ -1,0 +1,46 @@
+.goalCounter {
+  display: grid;
+  place-items: center;
+  font-family: "Averia Serif Libre";
+}
+
+.goalCounter__svg {
+  transform: rotate(-90deg); /* start at top */
+}
+
+.goalCounter__track {
+  fill: none;
+  stroke: #ccd5ae;
+  opacity: 1;
+}
+
+.goalCounter__progress {
+  fill: none;
+  stroke: #7e8a57;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 400ms ease;
+}
+
+.goalCounter__center {
+  position: absolute;
+  inset: 8;
+  place-items: center;
+  text-align: center;
+  padding: 12px;
+  pointer-events: none;
+  font-family: "Averia Serif Libre";
+}
+
+.goalCounter__percent {
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 1;
+  color: #2b2b2b;
+}
+
+.goalCounter__label {
+  margin-top: 6px;
+  font-size: 18px;
+  color: #777;
+  letter-spacing: 0.02em;
+}
