@@ -10,6 +10,46 @@
   padding-top: 10px;
 }
 
+.header__logo-with-user {
+  display: flex;
+  font-family: "Averia Serif Libre";
+  font-size: 22px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__user_info {
+  padding-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  padding-right: 40px;
+}
+
+.header__username {
+  margin: 0;
+}
+
+.header__user_avatar {
+  width: 80px;
+  border-radius: 9999%;
+  object-fit: contain;
+}
+
+.header__user_avatar_placeholder{
+  width: 80px;
+  height: 80px;
+  border-radius: 9999%;
+  background-color: #7e8a57;
+  color: #fafaff;
+  font-size: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
 .header__menu {
   margin-top: 20px;
   display: flex;
@@ -48,6 +88,8 @@ a:hover {
   gap: 50px;
 }
 
+.header__edit-profile-btn,
+.header__logout-btn,
 .header__login-btn,
 .header__signup-btn {
   color: #fafaff;
@@ -91,6 +133,7 @@ a:hover {
   border-radius: 8px;
   font-family: "Averia Serif Libre";
   opacity: 0;
+  visibility: hidden;
   transform: translateY(-10px);
   pointer-events: none;
   transition: opacity 0.25s ease, transform 0.25s ease;
@@ -101,9 +144,10 @@ a:hover {
   transform: translateY(0);
   pointer-events: auto;
   z-index: 1;
+  visibility: visible;
 }
 
-.header__menu-mobile-close{
+.header__menu-mobile-close {
   background-color: transparent;
   color: #fafaff;
   border: 1px solid #fafaff;
@@ -124,7 +168,7 @@ a:hover {
   flex-direction: column;
 }
 
-.header__buttons-mobile{
+.header__buttons-mobile {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -138,11 +182,66 @@ a:hover {
     align-items: center;
     padding-bottom: 20px;
   }
+  
+  .header__username {
+  display: none;
+}
+
+.header__user_info{
+  padding: 0;
+}
+
+.header__user_avatar_placeholder,
+.header__user_avatar{
+ display: none;
+}
+
+
+
+.header__user_info-mobile{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  color: #ca721c;
+}
+
+.header__user_avatar-mobile,
+.header__user_avatar_placeholder-mobile{
+  background-color: #fff8e6;
+  border-radius: 9999%;
+  width: 30px;
+  height: 30px;
+
+}
+
+.header__username-mobile{
+  color: #fafaff;
+  font-size: 24px;
+}
+
+.header__user_avatar_placeholder-mobile{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+
+
+.header__logo-with-user{
+  gap: 40px;
+}
+
 
   .header__logo {
     margin-left: 0;
   }
 
+  
+
+  .header__edit-profile-btn,
+  .header__logout-btn,
   .header__login-btn,
   .header__signup-btn {
     font-size: 16px;

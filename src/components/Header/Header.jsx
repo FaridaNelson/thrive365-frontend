@@ -1,13 +1,17 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import logo from "../../assets/Thrive365-Logo.svg";
 import "./Header.css";
 import { Link } from "react-router-dom";
 import hamburgerMenuLogo from "../../assets/hamburger-menu-svgrepo-com.svg";
+import { useContext } from "react";
+import { CurrentUserContext } from "../../utils/userContext";
 
-function Header() {
+function Header({ isLoggedIn, onLogOut }) {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [width, setWidth] = useState(() => window.innerWidth);
-
+  const navigate = useNavigate();
+  const { currentUser } = useContext(CurrentUserContext);
   useEffect(() => {
     const handleResize = () => setWidth(window.innerWidth);
 
@@ -18,7 +22,37 @@ function Header() {
   const isHamburger = width < 1200;
   return (
     <div className="header">
-      <img src={logo} alt="Thrive 365 Logo" className="header__logo" />
+      {isLoggedIn ? (
+        <div className="header__logo-with-user">
+          <img
+            src={logo}
+            alt="Thrive 365 Logo"
+            className="header__logo"
+            onClick={() => navigate("/")}
+          />
+          <div className="header__user_info">
+            <p className="header__username">{currentUser.username}</p>
+            {currentUser.avatarUrl ? (
+              <img
+                className="header__user_avatar"
+                src={currentUser.avatarUrl}
+                alt="Profile Picture"
+              />
+            ) : (
+              <div className="header__user_avatar_placeholder">
+                {currentUser.username[0]}
+              </div>
+            )}
+          </div>
+        </div>
+      ) : (
+        <img
+          src={logo}
+          alt="Thrive 365 Logo"
+          className="header__logo"
+          onClick={() => navigate("/")}
+        />
+      )}
       {!isHamburger ? (
         <div className="header__menu">
           <nav className="header__menu_nav">
@@ -26,18 +60,44 @@ function Header() {
               <Link to="/">
                 <li>Home</li>
               </Link>
-              <Link to="/add">
-                <li>Add Goals</li>
-              </Link>
+              {isLoggedIn ? (
+                <Link to="/add-a-goal">
+                  <li>Add Goals</li>
+                </Link>
+              ) : null}
               <Link to="/about-us">
                 <li>About</li>
               </Link>
             </ul>
           </nav>
-          <div className="header__buttons">
-            <button className="header__login-btn">Login</button>
-            <button className="header__signup-btn">Sign Up</button>
-          </div>
+          {!isLoggedIn ? (
+            <div className="header__buttons">
+              <button
+                className="header__login-btn"
+                onClick={() => navigate("/login")}
+              >
+                Login
+              </button>
+              <button
+                className="header__signup-btn"
+                onClick={() => navigate("/signup")}
+              >
+                Sign Up
+              </button>
+            </div>
+          ) : (
+            <div className="header__buttons">
+              <button
+                className="header__edit-profile-btn"
+                onClick={() => navigate("/edit-profile")}
+              >
+                Edit Profile
+              </button>
+              <button className="header__logout-btn" onClick={onLogOut}>
+                Log Out
+              </button>
+            </div>
+          )}
         </div>
       ) : (
         <div className="header__mobile-menu">
@@ -57,26 +117,92 @@ function Header() {
               isMobileOpen ? "header__mobile-menu_items--open" : ""
             }`}
           >
-            <button className="header__menu-mobile-close"
-            onClick={()=>setIsMobileOpen(prev=>!prev)}
-            >X</button>
+            <button
+              className="header__menu-mobile-close"
+              onClick={() => setIsMobileOpen((prev) => !prev)}
+            >
+              X
+            </button>
             <nav className="header__menu_nav-mobile">
               <ul className="header__menu_nav_buttons-mobile">
-                <Link to="/">
+                {}
+                <Link to="/" onClick={() => setIsMobileOpen((prev) => !prev)}>
                   <li>Home</li>
                 </Link>
-                <Link to="/add">
-                  <li>Add Goals</li>
-                </Link>
-                <Link to="/about-us">
+                {isLoggedIn ? (
+                  <Link
+                    to="/add-a-goal"
+                    onClick={() => setIsMobileOpen((prev) => !prev)}
+                  >
+                    <li>Add Goals</li>
+                  </Link>
+                ) : null}
+                <Link
+                  to="/about-us"
+                  onClick={() => setIsMobileOpen((prev) => !prev)}
+                >
                   <li>About</li>
                 </Link>
               </ul>
             </nav>
-            <div className="header__buttons-mobile">
-              <button className="header__login-btn">Login</button>
-              <button className="header__signup-btn">Sign Up</button>
+            {!isLoggedIn ? (
+              <div className="header__buttons-mobile">
+                <button
+                  className="header__login-btn"
+                  onClick={() => {
+                    navigate("/login");
+                    setIsMobileOpen((prev) => !prev);
+                  }}
+                >
+                  Login
+                </button>
+                <button
+                  className="header__signup-btn"
+                  onClick={() => {
+                    navigate("/signup");
+                    setIsMobileOpen((prev) => !prev);
+                  }}
+                >
+                  Sign Up
+                </button>
+              </div>
+            ) : (
+              <div className="header__buttons-mobile">
+                <button
+                  className="header__edit-profile-btn"
+                  onClick={() => {
+                    navigate("/edit-profile");
+                    setIsMobileOpen((prev) => !prev);
+                  }}
+                >
+                  Edit Profile
+                </button>
+                <button
+                  className="header__logout-btn"
+                  onClick={() => {
+                    onLogOut();
+                    navigate("/");
+                    setIsMobileOpen((prev) => !prev);
+                  }}
+                >
+                  Log out
+                </button>
+                <div className="header__user_info-mobile">
+              <p className="header__username-mobile">{currentUser?.username}</p>
+              {currentUser?.avatarUrl ? (
+                <img
+                  className="header__user_avatar-mobile"
+                  src={currentUser.avatarUrl}
+                  alt="Profile Picture"
+                />
+              ) : (
+                <div className="header__user_avatar_placeholder-mobile">
+                  {currentUser?.username[0]}
+                </div>
+              )}
             </div>
+              </div>
+            )}
           </div>
         </div>
       )}

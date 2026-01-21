@@ -10,7 +10,7 @@
   background: #f6e8bf;
   padding: 60px 16px;
   text-align: center;
-  font-family: inherit;
+  font-family: "Averia Serif Libre";
 }
 
 .delete-confirm__title {
@@ -46,7 +46,7 @@
   font-weight: 700;
   letter-spacing: 0.2px;
   cursor: pointer;
-
+  font-family: "Averia Serif Libre";
   border: 2px solid rgba(40, 40, 40, 0.45);
   box-shadow: 0 3px 0 rgba(0, 0, 0, 0.1);
   transition:
@@ -86,6 +86,7 @@
 
   .delete-confirm__msg {
     font-size: 20px;
+    padding: 5px;
   }
 
   .delete-confirm__return,

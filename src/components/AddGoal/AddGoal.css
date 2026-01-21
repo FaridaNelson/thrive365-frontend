@@ -1,0 +1,234 @@
+.add-goal {
+  padding: 50px 100px;
+  font-family: "Averia Serif Libre";
+}
+
+.add-goal__title {
+  text-align: center;
+  color: #ca721c;
+  font-size: 32px;
+}
+
+.add-goal__subtitle {
+  font-weight: 300;
+  font-style: Light;
+  font-size: 24px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  vertical-align: middle;
+}
+
+.add-steps__form,
+.add-goal__form > div,
+.add-goal__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-notes__title,
+.add-steps__form_title,
+.add-goal__form_title {
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 28px;
+  line-height: 28px;
+  letter-spacing: -0.5px;
+  vertical-align: middle;
+}
+
+label {
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 24px;
+  line-height: 28px;
+  letter-spacing: -0.5px;
+  vertical-align: middle;
+  margin-bottom: 10px;
+}
+
+.goal__sub-label {
+  font-family: "Averia Serif Libre";
+  font-weight: 300;
+  font-style: Light;
+  font-size: 24px;
+  margin: 20px 0;
+  line-height: 100%;
+  letter-spacing: 0%;
+  vertical-align: middle;
+}
+
+.add-notes__subtitle,
+.add-steps__subtitle {
+  font-family: "Averia Serif Libre";
+  font-weight: 300;
+  font-style: Light;
+  font-size: 24px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  vertical-align: middle;
+}
+
+input {
+  margin-bottom: 30px;
+  height: 48px;
+  border: 1px solid #7e8a57;
+  border-radius: 10px;
+  background-color: #fff8e6;
+  font-family: "Averia Serif Libre";
+  font-weight: 300;
+  font-style: Light;
+  font-size: 24px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  padding: 10px;
+  vertical-align: middle;
+  color: #54504a;
+}
+
+input::placeholder {
+  font-family: "Averia Serif Libre";
+  font-weight: 300;
+  font-style: Light;
+  font-size: 24px;
+  line-height: 100%;
+  letter-spacing: 0%;
+
+  vertical-align: middle;
+  color: #54504a;
+}
+
+input:focus::placeholder {
+  color: transparent;
+}
+
+.save-goal__button,
+.add-step__button {
+  width: 100%;
+  gap: 10px;
+  border-radius: 10px;
+  border-width: 1px;
+  padding: 10px;
+  background-color: #7e8a57;
+  font-family: "Averia Serif Libre";
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 28px;
+  line-height: 28px;
+  letter-spacing: -0.5px;
+  text-align: center;
+  vertical-align: middle;
+  color: #fafaff;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.18);
+}
+
+@media (max-width: 1024px) {
+  .add-goal {
+    padding: 50px 60px;
+  }
+
+  .add-goal__title {
+    font-size: 28px;
+  }
+
+  .add-goal__subtitle,
+  .goal__sub-label,
+  .add-notes__subtitle,
+  .add-steps__subtitle {
+    font-size: 22px;
+  }
+
+  .add-notes__title,
+  .add-steps__form_title,
+  .add-goal__form_title {
+    font-size: 24px;
+    line-height: 26px;
+  }
+
+  label {
+    font-size: 22px;
+    line-height: 26px;
+  }
+
+  input {
+    font-size: 22px;
+    height: 46px;
+    margin-bottom: 24px;
+  }
+
+  input::placeholder {
+    font-size: 22px;
+  }
+
+  .save-goal__button,
+  .add-step__button {
+    font-size: 24px;
+    line-height: 26px;
+  }
+}
+
+@media (max-width: 600px) {
+  .add-goal {
+    padding: 32px 20px;
+  }
+
+  .add-goal__title {
+    font-size: 24px;
+  }
+
+  .add-goal__subtitle,
+  .goal__sub-label,
+  .add-notes__subtitle,
+  .add-steps__subtitle {
+    font-size: 18px;
+    line-height: 120%;
+    margin: 14px 0;
+  }
+
+  .add-notes__title,
+  .add-steps__form_title,
+  .add-goal__form_title {
+    font-size: 20px;
+    line-height: 22px;
+  }
+
+  label {
+    font-size: 18px;
+    line-height: 22px;
+    margin-bottom: 8px;
+  }
+
+  input {
+    font-size: 16px;
+    height: 44px;
+    padding: 10px 12px;
+    margin-bottom: 18px;
+  }
+
+  input::placeholder {
+    font-size: 16px;
+  }
+  .save-goal__button,
+  .add-step__button {
+    font-size: 20px;
+    line-height: 22px;
+    padding: 12px;
+  }
+}
+
+@media (max-width: 360px) {
+  .add-goal {
+    padding: 28px 14px;
+  }
+
+  .add-goal__title {
+    font-size: 22px;
+  }
+
+  input {
+    font-size: 15px;
+  }
+
+  .add-step__button {
+    font-size: 18px;
+  }
+}

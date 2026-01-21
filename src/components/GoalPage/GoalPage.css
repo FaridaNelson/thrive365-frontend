@@ -65,6 +65,7 @@
 }
 
 .goal-page__image-btn {
+  font-family: "Averia Serif Libre";
   position: absolute;
   left: 50%;
   top: 50%;
@@ -89,6 +90,7 @@
   border: 1px solid rgba(0, 0, 0, 0.18);
   padding: 16px 18px;
   box-shadow: 0 2px 0 rgba(0, 0, 0, 0.08);
+  margin: 40px 0;
 }
 
 .goal-page__card-title {
@@ -176,6 +178,7 @@
 }
 
 .goal-page__btn {
+  font-family: "Averia Serif Libre";
   width: 100%;
   height: 52px;
   border-radius: 8px;
