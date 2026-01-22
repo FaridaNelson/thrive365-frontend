@@ -75,6 +75,16 @@ function AddGoal() {
     }
   };
 
+  const [openDropdown, setOpenDropdown] = useState(null); // "slot" | "display" | "reset" | null
+
+  const [color, setColor] = useState(null);
+
+  const [resetCycle, setResetCycle] = useState("Default");
+
+  const toggleDropdown = (key) => {
+    setOpenDropdown((prev) => (prev === key ? null : key));
+  };
+
   return (
     <div className="add-goal">
       <h1 className="add-goal__title">Set your inetions to Thrive!</h1>
@@ -96,6 +106,162 @@ function AddGoal() {
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
+
+        {/* Dropdowns */}
+        {/* Drop downs */}
+        <div className="goal__dropdowns">
+          {/* CATEGORY */}
+          <div className="goal__row">
+            <button
+              type="button"
+              className="goal__rowHeader"
+              onClick={() => toggleDropdown("slot")}
+            >
+              <span>Category</span>
+
+              <span className="goal__rowRight">
+                <span>
+                  {slot === 1
+                    ? "Career"
+                    : slot === 2
+                    ? "Finance"
+                    : slot === 3
+                    ? "Education"
+                    : "Fitness"}
+                </span>
+                <span
+                  className={`goal__chev ${
+                    openDropdown === "slot" ? "goal__chev--up" : ""
+                  }`}
+                >
+                  ▾
+                </span>
+              </span>
+            </button>
+
+            {openDropdown === "slot" && (
+              <div className="goal__rowContent">
+                <div className="goal__optionsRow">
+                  {[
+                    { n: 1, t: "Career" },
+                    { n: 2, t: "Finance" },
+                    { n: 3, t: "Education" },
+                    { n: 4, t: "Fitness" },
+                  ].map((o) => (
+                    <label key={o.n} className="goal__radioOption">
+                      <input
+                        type="radio"
+                        name="slot"
+                        value={o.n}
+                        checked={Number(slot) === o.n}
+                        onChange={(e) => setSlot(Number(e.target.value))}
+                      />
+                      {o.t}
+                    </label>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* DISPLAY (Color schemes) */}
+          <div className="goal__row">
+            <button
+              type="button"
+              className="goal__rowHeader"
+              onClick={() => toggleDropdown("display")}
+            >
+              <span>Display</span>
+
+              <span className="goal__rowRight">
+                <span
+                  className="goal__colorPreview"
+                  style={{ backgroundColor: color || "#cfcfcf" }}
+                />
+                <span
+                  className={`goal__chev ${
+                    openDropdown === "display" ? "goal__chev--up" : ""
+                  }`}
+                >
+                  ▾
+                </span>
+              </span>
+            </button>
+
+            {openDropdown === "display" && (
+              <div className="goal__rowContent">
+                <div className="goal__colorRow">
+                  {[
+                    "#C77B1F",
+                    "#F0C23A",
+                    "#2F6B3B",
+                    "#1E3EE6",
+                    "#8A4BFF",
+                    "#CFCFCF",
+                  ].map((c) => (
+                    <button
+                      key={c}
+                      type="button"
+                      className={`goal__colorDot ${
+                        color === c ? "goal__colorDot--active" : ""
+                      }`}
+                      style={{ backgroundColor: c }}
+                      onClick={() => setColor(c)}
+                    />
+                  ))}
+
+                  <button type="button" className="goal__plus">
+                    +
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* RESET */}
+          <div className="goal__row">
+            <button
+              type="button"
+              className="goal__rowHeader"
+              onClick={() => toggleDropdown("reset")}
+            >
+              <span>Reset</span>
+
+              <span className="goal__rowRight">
+                <span>{resetCycle}</span>
+                <span
+                  className={`goal__chev ${
+                    openDropdown === "reset" ? "goal__chev--up" : ""
+                  }`}
+                >
+                  ▾
+                </span>
+              </span>
+            </button>
+
+            {openDropdown === "reset" && (
+              <div className="goal__rowContent">
+                <div className="goal__optionsRow">
+                  {["Daily", "Weekly", "Monthly", "Yearly"].map((c) => (
+                    <button
+                      key={c}
+                      type="button"
+                      className={`goal__cycleBtn ${
+                        resetCycle === c ? "goal__cycleBtn--active" : ""
+                      }`}
+                      onClick={() => {
+                        setResetCycle(c);
+                        setOpenDropdown(null);
+                      }}
+                    >
+                      {c}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
 
         <label htmlFor="goal-definition">
           SMART Goal - Define your goal using Specific, Measurable, Achievable,
@@ -128,6 +294,15 @@ function AddGoal() {
           placeholder="Add image URL"
           value={imageUrl}
           onChange={(e) => setImageUrl(e.target.value)}
+        />
+
+        <label htmlFor="goal-reason">Why is this goal important?</label>
+        <input
+          id="goal-reason"
+          type="text"
+          placeholder="Define your reason"
+          value={reason}
+          onChange={(e) => setReason(e.target.value)}
         />
 
         <h2 className="add-steps__form_title">Stepping Stone Goals</h2>

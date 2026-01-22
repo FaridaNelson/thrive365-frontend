@@ -29,7 +29,7 @@ function GoalCards({ goals = [] }) {
 
             <div className="goal-card__title-and-progress-bar">
               {/* You didn’t have category from backend yet */}
-              <h2 className="goal-card__category">Slot {goal.slot}</h2>
+              <h2 className="goal-card__category">{goal.slot}</h2>
 
               <div className="goal-card__progress-bar">
                 <div
