@@ -2,11 +2,11 @@
   width: 300px;
   display: flex;
   flex-direction: column;
-  background-color: #FFF8E6;
+  background-color: #fff8e6;
   padding: 30px;
   border-radius: 20px;
   font-family: "Averia Serif Libre";
-  border: 1px solid #7E8A57;
+  border: 1px solid #7e8a57;
 }
 
 .goal-card__header {
@@ -14,20 +14,19 @@
   gap: 10px;
 }
 
-.goal-card__title-and-progress-bar{
+.goal-card__title-and-progress-bar {
   width: 100%;
 }
 
 .goal-card__manage-goal-button {
   padding: 10px 40px;
-  background-color: #7E8A57;
+  background-color: #7e8a57;
   border-radius: 8px;
   border: none;
   font-size: 18px;
   color: #fafaff;
   font-family: "Averia Serif Libre";
   cursor: pointer;
-  
 }
 
 .goal-card__progress-bar {
@@ -42,15 +41,20 @@
 .goal-card__progress-bar__fill {
   height: 100%;
   width: 30%; /* must change this to adjust progress */
-  background-color: #2338c6; 
+  background-color: #2338c6;
   border-radius: 999px 0 0 999px;
 }
-
 
 .goal-card__image {
   border-radius: 20px;
   width: 100px;
-
 }
 
-
+.goal-card__image--placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.05);
+  color: rgba(0, 0, 0, 0.5);
+  font-weight: 600;
+}

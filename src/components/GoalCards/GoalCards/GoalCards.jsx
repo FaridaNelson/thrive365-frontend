@@ -1,25 +1,53 @@
 import "./GoalCards.css";
-import { initialCards } from "../../../utils/configs";
-function GoalCards() {
+import { useNavigate } from "react-router-dom";
+
+function GoalCards({ goals = [] }) {
+  const navigate = useNavigate();
+
+  if (!goals.length) {
+    return <p>No goals yet. Click “Add a Goal” to get started.</p>;
+  }
+
   return (
     <>
-      {initialCards.map((card, idx) => (
-        <div className="goal-card" key={`${card.Title}-${idx}`}>
+      {goals.map((goal) => (
+        <div className="goal-card" key={goal.id}>
           <div className="goal-card__header">
-            <img
-              className="goal-card__image"
-              src={card.Image}
-              alt={card.Title}
-            />
+            <div className="goal-card__image-wrap">
+              {goal.coverImageUrl ? (
+                <img
+                  className="goal-card__image"
+                  src={goal.coverImageUrl}
+                  alt={goal.title}
+                />
+              ) : (
+                <div className="goal-card__image goal-card__image--placeholder">
+                  No image
+                </div>
+              )}
+            </div>
+
             <div className="goal-card__title-and-progress-bar">
-              <h2 className="goal-card__category">{card.Category}</h2>
+              {/* You didn’t have category from backend yet */}
+              <h2 className="goal-card__category">Slot {goal.slot}</h2>
+
               <div className="goal-card__progress-bar">
-                <div className="goal-card__progress-bar__fill"></div>
+                <div
+                  className="goal-card__progress-bar__fill"
+                  style={{ width: `${goal.progressPercent}%` }}
+                />
               </div>
             </div>
           </div>
-          <h2 className="goal-card__title">{card.Title}</h2>
-          <button className="goal-card__manage-goal-button">View Goal</button>
+
+          <h2 className="goal-card__title">{goal.title}</h2>
+
+          <button
+            className="goal-card__manage-goal-button"
+            onClick={() => navigate(`/goals/${goal.id}`)}
+          >
+            View Goal
+          </button>
         </div>
       ))}
     </>
