@@ -1,10 +1,7 @@
 import "./EditProfile.css";
 import { useNavigate } from "react-router-dom";
-import { CurrentUserContext } from "../../utils/userContext";
-import { useContext } from "react";
 
 function EditProfile({ onClick, setUsername, setAvatarUrl }) {
-  const currentUser = useContext(CurrentUserContext);
   const navigate = useNavigate();
   return (
     <div className="edit-profile-page">
@@ -15,7 +12,9 @@ function EditProfile({ onClick, setUsername, setAvatarUrl }) {
           required
           type="text"
           placeholder="Enter new username"
-          onChange={(e) => {setUsername(e.target.value)}}
+          onChange={(e) => {
+            setUsername(e.target.value);
+          }}
         />
         <label htmlFor="avatarUrl">Edit Avatar</label>
         <input
@@ -27,7 +26,10 @@ function EditProfile({ onClick, setUsername, setAvatarUrl }) {
         <button
           className="edit-profile-form__button"
           type="submit"
-          onClick={(e) => onClick(e)}
+          onClick={(e) => {
+            onClick(e);
+            navigate("/dashboard");
+          }}
         >
           Save Changes
         </button>

@@ -40,7 +40,7 @@ function Header({ isLoggedIn, onLogOut }) {
               />
             ) : (
               <div className="header__user_avatar_placeholder">
-                {currentUser.username[0]}
+                {currentUser?.username?.[0]}
               </div>
             )}
           </div>
@@ -57,9 +57,11 @@ function Header({ isLoggedIn, onLogOut }) {
         <div className="header__menu">
           <nav className="header__menu_nav">
             <ul className="header__menu_nav_buttons">
-              <Link to="/">
-                <li>Home</li>
-              </Link>
+              {!isLoggedIn ? (
+                <Link to="/">
+                  <li>Home</li>
+                </Link>
+              ) : null}
               {isLoggedIn ? (
                 <Link to="/add-a-goal">
                   <li>Add Goals</li>
@@ -87,6 +89,12 @@ function Header({ isLoggedIn, onLogOut }) {
             </div>
           ) : (
             <div className="header__buttons">
+              <button
+                className="header__edit-profile-btn"
+                onClick={() => navigate("/dashboard")}
+              >
+                DashBoard
+              </button>
               <button
                 className="header__edit-profile-btn"
                 onClick={() => navigate("/edit-profile")}
@@ -125,10 +133,10 @@ function Header({ isLoggedIn, onLogOut }) {
             </button>
             <nav className="header__menu_nav-mobile">
               <ul className="header__menu_nav_buttons-mobile">
-                {}
-                <Link to="/" onClick={() => setIsMobileOpen((prev) => !prev)}>
+               
+             {!isLoggedIn?  <Link to="/" onClick={() => setIsMobileOpen((prev) => !prev)}>
                   <li>Home</li>
-                </Link>
+                </Link>:null}
                 {isLoggedIn ? (
                   <Link
                     to="/add-a-goal"
@@ -171,6 +179,15 @@ function Header({ isLoggedIn, onLogOut }) {
                 <button
                   className="header__edit-profile-btn"
                   onClick={() => {
+                    navigate("/dashboard");
+                    setIsMobileOpen((prev) => !prev);
+                  }}
+                >
+                  DashBoard
+                </button>
+                <button
+                  className="header__edit-profile-btn"
+                  onClick={() => {
                     navigate("/edit-profile");
                     setIsMobileOpen((prev) => !prev);
                   }}
@@ -188,19 +205,21 @@ function Header({ isLoggedIn, onLogOut }) {
                   Log out
                 </button>
                 <div className="header__user_info-mobile">
-              <p className="header__username-mobile">{currentUser?.username}</p>
-              {currentUser?.avatarUrl ? (
-                <img
-                  className="header__user_avatar-mobile"
-                  src={currentUser.avatarUrl}
-                  alt="Profile Picture"
-                />
-              ) : (
-                <div className="header__user_avatar_placeholder-mobile">
-                  {currentUser?.username[0]}
+                  <p className="header__username-mobile">
+                    {currentUser?.username}
+                  </p>
+                  {currentUser?.avatarUrl ? (
+                    <img
+                      className="header__user_avatar-mobile"
+                      src={currentUser.avatarUrl}
+                      alt="Profile Picture"
+                    />
+                  ) : (
+                    <div className="header__user_avatar_placeholder-mobile">
+                      {currentUser?.username?.[0]}
+                    </div>
+                  )}
                 </div>
-              )}
-            </div>
               </div>
             )}
           </div>

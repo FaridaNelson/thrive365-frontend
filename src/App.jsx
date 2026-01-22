@@ -23,7 +23,6 @@ function App() {
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
   const [avatarUrl, setAvatarUrl] = useState("");
-  const [goals, setGoals] = useState(null);
 
   const navigate = useNavigate();
 
@@ -31,7 +30,7 @@ function App() {
     const token = getToken();
     if (!token) return;
 
-    api("/me/me")
+    api("/me")
       .then((user) => {
         setCurrentUser(user);
         setIsLoggedIn(true);
@@ -71,11 +70,8 @@ function App() {
         setToken(data.token);
         setCurrentUser(data.user);
         setIsLoggedIn(true);
-        if (!goals) {
-          navigate("/add-a-goal");
-        } else {
-          navigate("/dashboard");
-        }
+
+        navigate("/dashboard");
 
         return data;
       })
@@ -86,7 +82,7 @@ function App() {
 
   const handleEditProfile = (e) => {
     e.preventDefault();
-    return api("/me/me", {
+    return api("/me", {
       method: "PATCH",
       body: JSON.stringify({ username, avatarUrl }),
     }).then((updatedUser) => {
@@ -102,19 +98,6 @@ function App() {
     navigate("/");
   };
 
-  const handleCreateGoal = () => {
-    // handles creating a goal
-  };
-
-  const handleEditGoal = () => {
-    //handles editing a goal
-    // either editing it's information or pausing and continuing a goal
-  };
-
-  const handleDeleteGoal = () => {
-    // handles deleting a goal
-  };
-
   return (
     <CurrentUserContext.Provider value={{ currentUser, setCurrentUser }}>
       <div className="app">
@@ -125,22 +108,13 @@ function App() {
             <Route path="/" element={<HeroSection />} />
             <Route path="/dashboard" element={<DashBoard />} />
             <Route path="/about-us" element={<AboutUs />} />
-            <Route
-              path="/add-a-goal"
-              element={<AddGoal onClick={handleCreateGoal} />}
-            />
-            <Route
-              path="/goals/:goalId"
-              element={<GoalPage onClick={handleEditGoal} />}
-            />
+            <Route path="/add-a-goal" element={<AddGoal />} />
+            <Route path="/goals/:goalId" element={<GoalPage />} />
             <Route
               path="/goals/:goalId/delete"
               element={<GoalDeleteConfirm />}
             />
-            <Route
-              path="/goals/deleted"
-              element={<GoalDeleted onClick={handleDeleteGoal} />}
-            />
+            <Route path="/goals/deleted" element={<GoalDeleted />} />
             <Route
               path="/signup"
               element={
