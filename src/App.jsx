@@ -1,4 +1,4 @@
-import { Routes, Route,Navigate } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import DashBoard from "./components/DashBoard/DashBoard";
@@ -9,7 +9,7 @@ import AboutUs from "./components/AboutUs/AboutUs";
 import GoalDeleteConfirm from "./components/GoalDeleteConfirm/GoalDeleteConfirm";
 import GoalDeleted from "./components/GoalDeleted/GoalDeleted";
 import SignUp from "./components/SignUp/SignUp";
-import LogIn from "./components/LogIn/Login";
+import LogIn from "./components/LogIn/LogIn";
 import { useState, useEffect } from "react";
 import { CurrentUserContext } from "./utils/userContext";
 import { getToken, setToken, removeToken, api } from "./utils/api";
@@ -114,7 +114,7 @@ function App() {
                   <HeroSection />
                 )
               }
-            />  
+            />
             <Route path="/dashboard" element={<DashBoard />} />
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/add-a-goal" element={<AddGoal />} />
