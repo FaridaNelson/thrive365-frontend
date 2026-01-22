@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route,Navigate } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import DashBoard from "./components/DashBoard/DashBoard";
@@ -105,7 +105,16 @@ function App() {
 
         <main className="app__main">
           <Routes>
-            <Route path="/" element={<HeroSection />} />
+            <Route
+              path="/"
+              element={
+                isLoggedIn ? (
+                  <Navigate to="/dashboard" replace />
+                ) : (
+                  <HeroSection />
+                )
+              }
+            />  
             <Route path="/dashboard" element={<DashBoard />} />
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/add-a-goal" element={<AddGoal />} />

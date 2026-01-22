@@ -58,3 +58,101 @@
   color: rgba(0, 0, 0, 0.5);
   font-weight: 600;
 }
+
+.no-goals-message {
+  font-size: 20px;
+  font-family: "Averia Serif Libre";
+}
+
+
+.add-a-goal-button{
+  font-family: "Averia Serif Libre";
+  padding: 20px 40px;
+  background-color: #ca721c;
+  border-radius: 20px;
+  border: none;
+  font-size: 24px;
+  color: #fafaff;
+  cursor: pointer;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.18);
+  width: 100%;
+}
+
+
+.dashboard__empty {
+  grid-column: 1 / -1;      /* span across all columns */
+  justify-self: center;     /* center within grid */
+  text-align: center;
+}
+
+
+
+@media (max-width: 1024px) {
+  .goal-card {
+    width: 100%;
+    max-width: 360px;
+    padding: 24px;
+  }
+
+  .goal-card__manage-goal-button {
+    padding: 10px 24px;
+    font-size: 16px;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .goal-card {
+    width: 100%;
+    max-width: 100%;
+    padding: 20px;
+  }
+
+  .goal-card__header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .goal-card__image {
+    width: 100%;
+    max-width: 220px;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .goal-card__manage-goal-button {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 16px;
+  }
+
+  .goal-card__progress-bar {
+    height: 22px;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .goal-card {
+    padding: 16px;
+    border-radius: 16px;
+  }
+
+  .goal-card__image {
+    max-width: 100%;
+    border-radius: 16px;
+  }
+
+  .goal-card__progress-bar {
+    height: 20px;
+  }
+
+  .no-goals-message {
+    font-size: 18px;
+  }
+
+  .add-a-goal-button {
+    font-size: 20px;
+    padding: 16px 24px;
+  }
+}

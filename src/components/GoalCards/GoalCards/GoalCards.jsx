@@ -3,9 +3,20 @@ import { useNavigate } from "react-router-dom";
 
 function GoalCards({ goals = [] }) {
   const navigate = useNavigate();
-
   if (!goals.length) {
-    return <p>No goals yet. Click “Add a Goal” to get started.</p>;
+    return (
+      <div className="dashboard__empty">
+        <p className="no-goals-message">
+          No goals yet. Click “Add a Goal” to get started.
+        </p>
+        <button
+          className="add-a-goal-button"
+          onClick={() => navigate("/add-a-goal")}
+        >
+          Add a Goal
+        </button>
+      </div>
+    );
   }
 
   return (
