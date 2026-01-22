@@ -1,22 +1,31 @@
+import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-// import api from "../../utils/api"; // import api utility for backend interaction
+import { api } from "../../utils/api";
 import "./GoalDeleteConfirm.css";
 
 function GoalDeleteConfirm() {
   const navigate = useNavigate();
   const { goalId } = useParams();
 
-  //     Uncomment and implement when ready to connect to Backend
-  //
-  //     const handleDelete = async () => {
-  //     try {
-  //       await api.deleteGoal(goalId); // implement later if not ready
-  //       navigate(`/goals/${goalId}/deleted`);
-  //     } catch (e) {
-  //       console.error(e);
-  //       alert("Could not delete goal. Try again.");
-  //     }
-  //   };
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleDelete = () => {
+    setIsDeleting(true);
+    setError("");
+
+    api(`/goals/${goalId}`, { method: "DELETE" })
+      .then(() => {
+        navigate("/goals/deleted");
+      })
+      .catch((e) => {
+        console.error(e);
+        setError(e.message || "Could not delete goal. Try again.");
+      })
+      .finally(() => {
+        setIsDeleting(false);
+      });
+  };
 
   return (
     <div className="delete-confirm">
@@ -27,10 +36,13 @@ function GoalDeleteConfirm() {
         goal?
       </div>
 
+      {error && <p className="delete-confirm__error">{error}</p>}
+
       <button
         type="button"
         className="delete-confirm__return"
         onClick={() => navigate(`/goals/${goalId}`)}
+        disabled={isDeleting}
       >
         Return to Goal
       </button>
@@ -38,9 +50,10 @@ function GoalDeleteConfirm() {
       <button
         type="button"
         className="delete-confirm__delete"
-        onClick={() => navigate(`/goals/deleted`)} // replace with handleDelete when ready to connect the Backend
+        onClick={handleDelete}
+        disabled={isDeleting}
       >
-        Delete Goal
+        {isDeleting ? "Deleting..." : "Delete Goal"}
       </button>
     </div>
   );
