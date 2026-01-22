@@ -7,6 +7,7 @@ function SignUp({ onClick, setEmail, setPassword, setUsername, setAvatarUrl }) {
         <label htmlFor="email">Email</label>
         <input
           required
+          name="email"
           type="email"
           placeholder="Enter email"
           onChange={(e) => setEmail(e.target.value)}
@@ -15,6 +16,7 @@ function SignUp({ onClick, setEmail, setPassword, setUsername, setAvatarUrl }) {
         <input
           required
           type="password"
+          name="password"
           minLength={6}
           placeholder="Enter password"
           onChange={(e) => setPassword(e.target.value)}

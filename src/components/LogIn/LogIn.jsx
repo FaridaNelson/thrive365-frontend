@@ -34,6 +34,7 @@ function LogIn() {
         <label htmlFor="email">Email</label>
         <input
           id="email"
+          name="email"
           required
           type="email"
           placeholder="Enter email"
@@ -44,6 +45,7 @@ function LogIn() {
         <label htmlFor="password">Password</label>
         <input
           id="password"
+          name="password"
           required
           type="password"
           placeholder="Enter password"
