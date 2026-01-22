@@ -10,46 +10,56 @@ function GoalCards({ goals = [] }) {
 
   return (
     <>
-      {goals.map((goal) => (
-        <div className="goal-card" key={goal.id}>
-          <div className="goal-card__header">
-            <div className="goal-card__image-wrap">
-              {goal.coverImageUrl ? (
-                <img
-                  className="goal-card__image"
-                  src={goal.coverImageUrl}
-                  alt={goal.title}
-                />
-              ) : (
-                <div className="goal-card__image goal-card__image--placeholder">
-                  No image
+      {goals.map((goal) => {
+        const goalId = goal.id || goal._id; // IMPORTANT: support Mongo _id
+
+        return (
+          <div
+            className="goal-card"
+            key={goalId}
+            style={{
+              borderLeft: `8px solid ${goal.displayColor || "#CFCFCF"}`,
+            }}
+          >
+            <div className="goal-card__header">
+              <div className="goal-card__image-wrap">
+                {goal.coverImageUrl ? (
+                  <img
+                    className="goal-card__image"
+                    src={goal.coverImageUrl}
+                    alt={goal.title}
+                  />
+                ) : (
+                  <div className="goal-card__image goal-card__image--placeholder">
+                    No image
+                  </div>
+                )}
+              </div>
+
+              <div className="goal-card__title-and-progress-bar">
+                {/* pick ONE of these (you had it twice) */}
+                <h2 className="goal-card__category">{goal.category}</h2>
+
+                <div className="goal-card__progress-bar">
+                  <div
+                    className="goal-card__progress-bar__fill"
+                    style={{ width: `${goal.progressPercent || 0}%` }}
+                  />
                 </div>
-              )}
-            </div>
-
-            <div className="goal-card__title-and-progress-bar">
-              {/* You didn’t have category from backend yet */}
-              <h2 className="goal-card__category">{goal.slot}</h2>
-
-              <div className="goal-card__progress-bar">
-                <div
-                  className="goal-card__progress-bar__fill"
-                  style={{ width: `${goal.progressPercent}%` }}
-                />
               </div>
             </div>
+
+            <h2 className="goal-card__title">{goal.title}</h2>
+
+            <button
+              className="goal-card__manage-goal-button"
+              onClick={() => navigate(`/goals/${goalId}`)}
+            >
+              View Goal
+            </button>
           </div>
-
-          <h2 className="goal-card__title">{goal.title}</h2>
-
-          <button
-            className="goal-card__manage-goal-button"
-            onClick={() => navigate(`/goals/${goal.id}`)}
-          >
-            View Goal
-          </button>
-        </div>
-      ))}
+        );
+      })}
     </>
   );
 }

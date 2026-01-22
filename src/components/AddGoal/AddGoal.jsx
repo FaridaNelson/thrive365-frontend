@@ -41,9 +41,19 @@ function AddGoal() {
       return;
     }
 
-    // Build payload expected by your backend createSchema
+    // Build payload expected by the backend createSchema
+    const category =
+      Number(slot) === 1
+        ? "Career"
+        : Number(slot) === 2
+          ? "Finance"
+          : Number(slot) === 3
+            ? "Education"
+            : "Fitness";
     const payload = {
       slot: Number(slot),
+      category,
+      displayColor: color || "#CFCFCF",
       title: title.trim(),
       definition: definition.trim(),
       reason: reason.trim(),
@@ -124,10 +134,10 @@ function AddGoal() {
                   {slot === 1
                     ? "Career"
                     : slot === 2
-                    ? "Finance"
-                    : slot === 3
-                    ? "Education"
-                    : "Fitness"}
+                      ? "Finance"
+                      : slot === 3
+                        ? "Education"
+                        : "Fitness"}
                 </span>
                 <span
                   className={`goal__chev ${
@@ -294,15 +304,6 @@ function AddGoal() {
           placeholder="Add image URL"
           value={imageUrl}
           onChange={(e) => setImageUrl(e.target.value)}
-        />
-
-        <label htmlFor="goal-reason">Why is this goal important?</label>
-        <input
-          id="goal-reason"
-          type="text"
-          placeholder="Define your reason"
-          value={reason}
-          onChange={(e) => setReason(e.target.value)}
         />
 
         <h2 className="add-steps__form_title">Stepping Stone Goals</h2>

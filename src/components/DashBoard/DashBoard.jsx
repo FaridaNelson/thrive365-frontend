@@ -43,7 +43,11 @@ function DashBoard() {
 
       <p className="dashboard__subtitle">
         The yearly goal progress donut represents the percentage of total goals
-        completed during the year...
+        completed during the year. It is calculated by dividing the number of
+        completed goals by the total number of goals set, then converting that
+        value into a percentage. This percentage determines how much of the
+        donut is filled, giving a quick visual snapshot of overall yearly
+        progress.
       </p>
 
       {loading && <p>Loading goals...</p>}
