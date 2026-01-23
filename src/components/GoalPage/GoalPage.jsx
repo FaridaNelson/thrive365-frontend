@@ -65,7 +65,7 @@ function GoalPage() {
           <h1 className="goal-page__title">{goal.title}</h1>
           <h2 className="goal-page__category">{goal.category}</h2>
         </header>
-
+        <img className="goal-page__image"  src={goal.imageUrls} alt="Goal Image" />
         <div className="goal-page__card">
           <h3 className="goal-page__card-title">Steps to achieving goal</h3>
           <ul className="goal-page__steps">
@@ -140,6 +140,16 @@ function GoalPage() {
           <Link to="/dashboard" className="goal-page__back-btn">
             Return to Dashboard
           </Link>
+        </div>
+
+        <div className="goal-page__notes">
+        <label htmlFor="notes">Notes</label>
+        <input
+          id="notes"
+          type="text"
+          placeholder="Add any notes you need"
+          value={goal.notes}
+        />
         </div>
       </div>
     </div>
