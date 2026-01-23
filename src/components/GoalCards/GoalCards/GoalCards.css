@@ -103,7 +103,7 @@
 
 @media (max-width: 768px) {
   .goal-card {
-    width: 100%;
+    width: 80%;
     max-width: 100%;
     padding: 20px;
   }
