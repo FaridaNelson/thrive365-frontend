@@ -106,6 +106,16 @@
   margin: 0;
 }
 
+.goal-page__image {
+  height: 200px;
+
+}
+
+.goal-page__notes{
+  display: flex;
+  flex-direction: column;
+}
+
 /* Steps */
 .goal-page__steps {
   list-style: none;
