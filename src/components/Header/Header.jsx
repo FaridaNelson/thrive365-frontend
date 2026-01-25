@@ -8,10 +8,14 @@ import { useContext } from "react";
 import { CurrentUserContext } from "../../utils/userContext";
 
 function Header({ isLoggedIn, onLogOut }) {
+  const navigate = useNavigate();
+
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [width, setWidth] = useState(() => window.innerWidth);
-  const navigate = useNavigate();
   const { currentUser } = useContext(CurrentUserContext);
+
+
+
   useEffect(() => {
     const handleResize = () => setWidth(window.innerWidth);
 
@@ -31,7 +35,7 @@ function Header({ isLoggedIn, onLogOut }) {
             onClick={() => navigate("/")}
           />
           <div className="header__user_info">
-            <p className="header__username">{currentUser.username}</p>
+            <p className="header__username">{currentUser?.username}</p>
             {currentUser.avatarUrl ? (
               <img
                 className="header__user_avatar"
@@ -133,10 +137,11 @@ function Header({ isLoggedIn, onLogOut }) {
             </button>
             <nav className="header__menu_nav-mobile">
               <ul className="header__menu_nav_buttons-mobile">
-               
-             {!isLoggedIn?  <Link to="/" onClick={() => setIsMobileOpen((prev) => !prev)}>
-                  <li>Home</li>
-                </Link>:null}
+                {!isLoggedIn ? (
+                  <Link to="/" onClick={() => setIsMobileOpen((prev) => !prev)}>
+                    <li>Home</li>
+                  </Link>
+                ) : null}
                 {isLoggedIn ? (
                   <Link
                     to="/add-a-goal"
