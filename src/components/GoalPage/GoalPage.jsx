@@ -7,6 +7,7 @@ function GoalPage() {
   const navigate = useNavigate();
   const { goalId } = useParams();
 
+  const [saving,setSaving] = useState(null);
   const [goal, setGoal] = useState(null);
   const [steps, setSteps] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -49,8 +50,11 @@ function GoalPage() {
   const toggleStep = (index) => {
     if (isPaused) return;
     setSteps((prev) =>
-      prev.map((s, i) => (i === index ? { ...s, done: !s.done } : s)),
+      prev.map((s, i) => (i === index ? { ...s, done: !s.done } : s))
     );
+    // after the step is toggled let's savce the new steps to backend aka mongo db
+    // set isSaving to true
+    // (isPauded || isSaving)
   };
 
   // Guard render
@@ -65,7 +69,11 @@ function GoalPage() {
           <h1 className="goal-page__title">{goal.title}</h1>
           <h2 className="goal-page__category">{goal.category}</h2>
         </header>
-        <img className="goal-page__image"  src={goal.imageUrls} alt="Goal Image" />
+        <img
+          className="goal-page__image"
+          src={goal.imageUrls}
+          alt="Goal Image"
+        />
         <div className="goal-page__card">
           <h3 className="goal-page__card-title">Steps to achieving goal</h3>
           <ul className="goal-page__steps">
@@ -95,10 +103,20 @@ function GoalPage() {
         </div>
 
         <div className="goal-page__progress">
-          <div className="goal-page__progress-bar">
+          <div
+            className="goal-page__progress-bar"
+            style={{
+              background: `color-mix(in srgb, ${
+                goal.displayColor || "blue"
+              } 40%, transparent)`,
+            }}
+          >
             <div
               className="goal-page__progress-fill"
-              style={{ width: `${progressPercent}%` }}
+              style={{
+                width: `${progressPercent}%`,
+                background: `${goal.displayColor || "blue"}`,
+              }}
             />
           </div>
         </div>
@@ -143,13 +161,13 @@ function GoalPage() {
         </div>
 
         <div className="goal-page__notes">
-        <label htmlFor="notes">Notes</label>
-        <input
-          id="notes"
-          type="text"
-          placeholder="Add any notes you need"
-          value={goal.notes}
-        />
+          <label htmlFor="notes">Notes</label>
+          <input
+            id="notes"
+            type="text"
+            placeholder="Add any notes you need"
+            value={goal.notes}
+          />
         </div>
       </div>
     </div>

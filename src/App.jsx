@@ -70,9 +70,8 @@ function App() {
         setToken(data.token);
         setCurrentUser(data.user);
         setIsLoggedIn(true);
-
         navigate("/dashboard");
-
+        console.log(data.user);
         return data;
       })
       .catch((error) => {
