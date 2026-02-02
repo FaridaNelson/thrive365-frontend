@@ -31,10 +31,13 @@ export async function api(path, options = {}) {
     headers,
   });
 
-  const data = await res.json().catch(() => ({}));
+  const contentType = res.headers.get("content-type") || "";
+  const raw = await res.text();
+  const data =
+    contentType.includes("application/json") && raw ? JSON.parse(raw) : { raw };
 
   if (!res.ok) {
-    throw new Error(data.message || `API error ${res.status}`);
+    throw new Error(data.message || data.raw || `API error ${res.status}`);
   }
 
   return data;
